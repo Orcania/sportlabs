@@ -1,0 +1,45 @@
+@import './vars';
+
+$color1: $hpurple;
+$color2: $hblue;
+
+/* width */
+.coolscroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+.coolscroll::-webkit-scrollbar-track {
+    background: $color2;
+}
+
+/* Handle */
+.coolscroll::-webkit-scrollbar-thumb {
+    background: $color1;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.coolscroll::-webkit-scrollbar-thumb:hover {
+    background: rgba($color1, 0.8);
+}
+
+.coolscroll-small::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.coolscroll-small::-webkit-scrollbar-track {
+    background: $color2;
+    border-radius: 10px;
+}
+
+.coolscroll-small::-webkit-scrollbar-thumb {
+    background: $color1;
+    border-radius: 10px;
+}
+
+.coolscroll-small::-webkit-scrollbar-thumb:hover {
+    background: rgba($color1, 0.8);
+}
