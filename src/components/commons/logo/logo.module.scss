@@ -1,0 +1,13 @@
+.logo {
+    @media screen and (max-width: 769px) {
+        justify-content: center;
+
+        #img {
+            width: 100px !important;
+        }
+
+        .title {
+            font-size: 2rem !important;
+        }
+    }
+}

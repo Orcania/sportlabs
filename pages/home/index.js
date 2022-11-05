@@ -1,158 +1,66 @@
-import { useState, useEffect } from 'react';
-import { Button } from 'primereact/button';
-import { Dialog } from 'primereact/dialog';
-
 import { getLayout as getPageTitleLayout } from 'src/layouts/page-title';
 
-import { toast } from 'react-toastify';
+import LogoComponent from 'src/components/commons/logo';
 
-import ExampleModal from 'src/components/modals/example-modal';
-
-import { useSelector, useDispatch } from 'react-redux';
-
-import appConfig from 'src/static/app.config';
+import socialMediaData from 'src/static/social-media';
 
 import styles from './home.module.scss';
 
-const { bg } = styles;
+const { title } = styles;
 
-const { appVersion } = appConfig;
-
-const Home = () => {
-    // reducers
-
-    const [displayBasic, setDisplayBasic] = useState(false);
-    const { exampleReducer } = useSelector(state => state);
-
-    const dispatch = useDispatch();
-
-    const [msg, setMsg] = useState(exampleReducer.storage);
-
-    const handleNotificationClick = () => {
-        toast.success('Notifications included!', {
-            theme: 'dark',
-        });
-        // NotificationsStore.addNotification(infoNotification('It includes notifications!! '));
-    };
-
-    const handleModalClick = () => {
-        setDisplayBasic(true);
-    };
-
-    const handleSetVarClick = () => {
-        const items = ['apple', 'banana', 'orange', 'grape', 'pear'];
-        dispatch({ type: 'SET_VAR', payload: items[Math.floor(Math.random() * items.length)] });
-    };
-
-    const onHide = () => {};
-
-    useEffect(() => {
-        setMsg(exampleReducer.storage);
-    }, [exampleReducer.storage]);
-
-    const renderFooter = () => {
-        return (
-            <div>
-                <Button
-                    label="No"
-                    icon="pi pi-times"
-                    onClick={() => setDisplayBasic(false)}
-                    className="p-button-text"
-                />
-                <Button label="Yes" icon="pi pi-check" onClick={() => setDisplayBasic(false)} autoFocus />
-            </div>
-        );
-    };
-
+const HomePage = () => {
     return (
-        <>
-            <ExampleModal />
+        <div className="has-bg-hdark" style={{ height: '100vh' }}>
+            <div
+                className="container px-5 py-6 is-flex is-flex-direction-column is-justify-content-space-evenly"
+                style={{ height: '100%' }}
+            >
+                <h1 id={title} className="title has-font-sport has-text-white shad has-text-centered">
+                    SPORTING LABS
+                </h1>
 
-            <div className={bg} style={{ height: '100vh', display: 'grid', placeItems: 'center' }}>
-                <div className="box has-bg-hdark-o-70 resize-manager">
-                    <h1 className="title has-text-white has-text-centered mb-6">
-                        Next js boostraper <span className="is-size-7">v{appVersion}</span>
-                    </h1>
-                    <h2 className="subtitle has-text-white has-text-centered has-text-justified">
-                        Build apps faster with pre builded components, added libraries, and structured folders.
-                    </h2>
+                <h2 className="subtitle has-text-white has-font-sport has-text-centered is-size-4 shad2">
+                    THE LEADING WEB
+                    <span className="has-font-akira " style={{ fontSize: '1.75rem' }}>
+                        <b>
+                            <i>3</i>
+                        </b>
+                    </span>{' '}
+                    SPORTS FANTASY BRAND <br /> POWERED BY THE BLOCHCHAIN
+                </h2>
 
-                    <div className="columns is-marginless">
-                        <div className="column">
-                            <button
-                                className="button is-fullwidth is-hblue outlined"
-                                type="button"
-                                onClick={handleNotificationClick}
-                                aria-label="r2d2"
-                            >
-                                <span className="icon  is-size-4">
-                                    <i className="fa-solid fa-robot-astromech" />
-                                </span>
-                            </button>
-                        </div>
-                        <div className="column">
-                            <button
-                                className="button is-fullwidth is-hblue outlined"
-                                type="button"
-                                onClick={handleModalClick}
-                                aria-label="star wars"
-                            >
-                                <span className="icon  is-size-4">
-                                    <i className="fa-solid fa-user-bounty-hunter" />
-                                </span>
-                            </button>
-                        </div>
-                        <div className="column">
-                            <button
-                                className="button is-fullwidth is-hblue outlined"
-                                type="button"
-                                onClick={handleSetVarClick}
-                                aria-label="batman"
-                            >
-                                <span className="icon  is-size-4">
-                                    <i className="fa-solid fa-bat" />
-                                </span>
-                            </button>
-                        </div>
-                        <div className="column">
-                            <button
-                                className="button is-fullwidth is-hblue outlined"
-                                type="button"
-                                aria-label="harry potter"
-                            >
-                                <span className="icon  is-size-4">
-                                    <i className="fa-solid fa-broom-ball" />
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+                <h2 className="subtitle has-text-white has-font-sport has-text-centered is-size-4 shad2">
+                    ONGOING PROJECT
+                </h2>
 
-                    <div className="pt-6">
-                        <h1 className="subtitle has-text-white has-text-centered ">
-                            <b>reducer storage:</b> <span className="animate__animated animate__fadeInDown">{msg}</span>
-                        </h1>
-                    </div>
-                </div>{' '}
-                <Dialog
-                    header="Modals included!"
-                    visible={displayBasic}
-                    style={{ width: '50vw' }}
-                    footer={renderFooter('displayBasic')}
-                    onHide={onHide}
-                >
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </Dialog>
+                <div className="is-flex is-justify-content-center">
+                    <LogoComponent />
+                </div>
+
+                <div className="is-flex is-justify-content-center">
+                    {socialMediaData.map(item => (
+                        <a
+                            key={item.id}
+                            href={item.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="has-text-white has-font-sport has-text-centered is-size-4 mx-3"
+                        >
+                            {item.icon()}
+                        </a>
+                    ))}
+                </div>
+
+                <h4 className="subtitle has-text-white has-font-montserrat has-text-centered is-size-7">
+                    <b>
+                        <i> © 2022 SPORTING LABS–ALL RIGHTS RESERVED</i>
+                    </b>
+                </h4>
             </div>
-        </>
+        </div>
     );
 };
 
-Home.getLayout = page => getPageTitleLayout(page, 'Home');
+HomePage.getLayout = page => getPageTitleLayout(page, 'Home');
 
-export default Home;
+export default HomePage;

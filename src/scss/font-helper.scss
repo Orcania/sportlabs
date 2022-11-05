@@ -1,7 +1,22 @@
 // import your fonts here and create a font-face rule for them
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=PT+Mono&display=swap?family=Anton&display=swap');
 
+@font-face {
+    font-family: 'Sport';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/media/fonts/sport.woff') format('woff2');
+}
+
+@font-face {
+    font-family: 'Akira';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/media/fonts/Akira.woff') format('woff2');
+}
 
 .has-font-airborne {
     font-family: 'Airborne', sans-serif;
@@ -14,6 +29,18 @@
 
 .has-font-ptmono {
     font-family: 'PT Mono', monospace;
+}
+
+.has-font-sport {
+    font-family: 'Sport', sans-serif;
+}
+
+.has-font-akira {
+    font-family: 'Akira', sans-serif;
+}
+
+.has-font-anton {
+    font-family: 'Anton', sans-serif;
 }
 
 // *:not(.has-font-airborne):not(i) {
